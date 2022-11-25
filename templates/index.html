@@ -1,17 +1,61 @@
-<!DOCTYPE html>
+<!-- 继承的子模版 -->
+{% extends 'base.html' %}
+
+{% block content %}
+<p>{{movies|length}} 个电影</p>
+<ul class = "movie-list">
+    {% for m in movies %}
+    <li>
+        {{m.title}} - {{m.year}}
+        <span class="float-right">
+            <a href="https://www.imdb.com/find?q= {{m.title}}" target = "_blank"  class="imdb" title = "Find this movie on IMDB">IMDB</a>
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+<img src="{{url_for('static',filename = 'images/totoro.gif')}}" alt="Walking Totoro" class = "totoro">
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="icon" href="{{ url_for('static',filename = 'images/dog.ico')}}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{user.name}}'s 观影列表</title>
+    <title>{{user}}'s 观影列表</title>
     <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" type = "text/css">
 </head>
 <body>
     <h2>
         <img src="{{url_for('static',filename = 'images/dog.jpg')}}" alt="Dog" class = "dog">
-        {{name}}'s 观影列表
+        {{user}}'s 观影列表
     </h2>
     <p>{{movies|length}} 个电影</p>
     <ul class = "movie-list">
@@ -27,4 +71,4 @@
     </footer>
     
 </body>
-</html>
+</html> -->
