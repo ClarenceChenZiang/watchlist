@@ -10,9 +10,25 @@
         <span class="float-right">
             <a href="https://www.imdb.com/find?q= {{m.title}}" target = "_blank"  class="imdb" title = "Find this movie on IMDB">IMDB</a>
         </span>
+        <span class="float-right">
+            <form class = "inline-form" method = "post" action="{{url_for('delete',movie_id = m.id)}}">
+                <input type="submit" class="btn" name = "delete" value = "Delete" onclick = "return confirm('确定要删除吗？')">
+            </form>
+        </span>
+        <span class="float-right">
+            <a class = "btn" href="{{url_for('edit',movie_id = m.id)}}">Edit</a>
+        </span>
+
     </li>
     {% endfor %}
 </ul>
+<form method="post">
+    电影名字 <input type="text" name = "title" autocomplete = "off" required>
+    年份 <input type="text" name = "year" autocomplete="off" required>
+    <input type="submit" class = "btn" name = "submit" value = "add">
+</form>
+
+
 <img src="{{url_for('static',filename = 'images/totoro.gif')}}" alt="Walking Totoro" class = "totoro">
 {% endblock %}
 
